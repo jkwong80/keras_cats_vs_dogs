@@ -133,4 +133,5 @@ model.fit_generator(
         epochs=10,
         validation_data=validation_generator,
         validation_steps=1000 // batch_size)
-model.save_weights('cat_dog_classifier.h5')  # always save your weights after training or during training
+model.save_weights('cat_dog_weights.h5')  # always save your weights after training or during training
+model.save('cat_dog_model.h5') # save the model
