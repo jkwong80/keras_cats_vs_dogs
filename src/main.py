@@ -10,13 +10,13 @@ import os, sys
 import numpy as np
 
 data_root_path = r'/Users/johnkwong/data'
+data_root_path = r'/media/jkwong/hitachi2tb/data'
 
 data_path = os.path.join(data_root_path, 'kaggle_cat_dog')
 
 training_data_path = os.path.join(data_path, 'train')
 test_data_path = os.path.join(data_path, 'test1')
 validation_data_path = os.path.join(data_path, 'validation')
-
 
 
 from keras.preprocessing.image import ImageDataGenerator
@@ -32,7 +32,6 @@ datagen = ImageDataGenerator(
         fill_mode='nearest')
 
 
-
 from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
 
 datagen = ImageDataGenerator(
@@ -44,7 +43,7 @@ datagen = ImageDataGenerator(
         horizontal_flip=True,
         fill_mode='nearest')
 
-img = load_img(os.path.join(training_data_path, 'cat.0.jpg'))  # this is a PIL image
+img = load_img(os.path.join(training_data_path, 'cats', 'cat.0.jpg'))  # this is a PIL image
 x = img_to_array(img)  # this is a Numpy array with shape (3, 150, 150)
 x = x.reshape((1,) + x.shape)  # this is a Numpy array with shape (1, 3, 150, 150)
 
@@ -130,8 +129,8 @@ validation_generator = test_datagen.flow_from_directory(
 
 model.fit_generator(
         train_generator,
-        steps_per_epoch=2000 // batch_size,
-        epochs=50,
+        steps_per_epoch=4000 // batch_size,
+        epochs=10,
         validation_data=validation_generator,
-        validation_steps=800 // batch_size)
+        validation_steps=1000 // batch_size)
 model.save_weights('cat_dog_classifier.h5')  # always save your weights after training or during training
