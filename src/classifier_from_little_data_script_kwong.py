@@ -67,9 +67,9 @@ validation_data_dir = os.path.join(data_path, 'validation')
 validation2_data_dir = os.path.join(data_path, 'validation2')
 
 
-nb_train_samples = 2000
-nb_validation_samples = 800
-epochs = 20
+nb_train_samples = 24000
+nb_validation_samples = 1000
+epochs = 50
 batch_size = 16
 
 if K.image_data_format() == 'channels_first':
