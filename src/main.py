@@ -2,6 +2,9 @@
 Train cat dog classifier
 Saves weights and also saves model.
 
+Taken from
+https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
+but had to modify a couple lines due to differences in how the array indices...
 
 
 """
@@ -10,38 +13,38 @@ import os, sys
 import numpy as np
 
 data_root_path = r'/Users/johnkwong/data'
-data_root_path = r'/media/jkwong/hitachi2tb/data'
+# data_root_path = r'/media/jkwong/hitachi2tb/data'
 
 data_path = os.path.join(data_root_path, 'kaggle_cat_dog')
 
 training_data_path = os.path.join(data_path, 'train')
 test_data_path = os.path.join(data_path, 'test1')
 validation_data_path = os.path.join(data_path, 'validation')
-
+validation2_data_path = os.path.join(data_path, 'validation2')
 
 from keras.preprocessing.image import ImageDataGenerator
 
 datagen = ImageDataGenerator(
-        rotation_range=40,
-        width_shift_range=0.2,
-        height_shift_range=0.2,
-        rescale=1./255,
-        shear_range=0.2,
-        zoom_range=0.2,
-        horizontal_flip=True,
-        fill_mode='nearest')
+    rotation_range=40,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    rescale=1./255,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True,
+    fill_mode='nearest')
 
 
 from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
 
 datagen = ImageDataGenerator(
-        rotation_range=40,
-        width_shift_range=0.2,
-        height_shift_range=0.2,
-        shear_range=0.2,
-        zoom_range=0.2,
-        horizontal_flip=True,
-        fill_mode='nearest')
+    rotation_range=40,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True,
+    fill_mode='nearest')
 
 img = load_img(os.path.join(training_data_path, 'cats', 'cat.0.jpg'))  # this is a PIL image
 x = img_to_array(img)  # this is a Numpy array with shape (3, 150, 150)
@@ -65,7 +68,7 @@ from keras.layers import Activation, Dropout, Flatten, Dense
 
 model = Sequential()
 # model.add(Conv2D(32, (3, 3), input_shape=(3, 150, 150)))
-model.add(Conv2D(32, 3, 3, input_shape=(150, 150,3)))
+model.add(Conv2D(32, 3, 3, input_shape=(150, 150, 3)))
 
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
