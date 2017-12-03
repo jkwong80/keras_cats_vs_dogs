@@ -15,6 +15,21 @@ from keras.models import load_model
 
 from PIL import Image
 
+
+class CatOrDog(object):
+    from keras.models import load_model
+
+    def  _init__(self, filename):
+        self.filename = filename
+        self.model = load_model(filename)
+
+    def PredictFilename(self, filename):
+        pass
+
+    def PredictImage(self, img):
+
+
+
 # dimensions of our images.
 img_width, img_height = 150, 150
 
@@ -45,7 +60,7 @@ for class_name in class_name_list:
 
 prediction_prob = {class_name:np.zeros(len(fullfilenamelist[class_name])) for class_name in class_name_list}
 
-for class_name in ['dogs']:
+for class_name in ['cats']:
     print('Working on {}'.format(class_name))
     for instance_index, f in enumerate(fullfilenamelist[class_name]):
         img = Image.open(f).resize((img_width, img_height), Image.ANTIALIAS)
