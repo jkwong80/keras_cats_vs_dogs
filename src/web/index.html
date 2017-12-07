@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--        <script src="https://d3js.org/d3.v4.min.js"></script>-->
+        <script src="http://mbostock.github.com/d3/d3.v2.js"></script>
+        <title>Cat or Dog?</title>
+
+        <style>
+          /* Always set the map height explicitly to define the size of the div
+           * element that contains the map. */
+          #map {
+            height: 500px;
+            width: 500px
+          }
+          /* Optional: Makes the sample page fill the window. */
+          html, body {
+            height: 100%;
+            margin: 20px;
+            padding: 10px;
+          }
+        .header img {
+          float: left;
+        /*
+          width: 100px;
+          height: 100px;
+        */
+          background: #555;
+        }
+
+        .header h1 {
+          position: relative;
+          top: 18px;
+          left: 10px;
+        font-size:250%;
+        }
+
+        pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+        .string { color: green; }
+        .number { color: darkorange; }
+        .boolean { color: blue; }
+        .null { color: magenta; }
+        .key { color: red; }
+        </style>
+        
+    </head>
+    
+    <body>
+        
+    <div class="header">
+        <img src="images/collie.jpg" alt="collie" height="100"/>
+        <img src="images/cat_thinking.jpg" alt="cat thinking" height="100" />
+        <br>
+    </div>
+    <h1>Cat or Dog?</h1>
+    <br>
+    <br>
+        
+    <form id="frm1" action="form_action.asp">
+      Cat Or Dog API URL: <input type="text" name="fname" id="url" size = 80 value="http://127.0.0.1:5000"><br>
+    </form>
+<!--        <button onclick="ClearJobId()">Clear job_id</button><br>-->
+
+    Image URL<br>
+    <textarea rows="3" cols="80" id="url_string">https://farm4.staticflickr.com/3373/3600836516_ab924c6729_z_d.jpg</textarea>
+
+    <p>Click "Invoke" to run the classifier. Press "Random" to run on a random Flickr Image</p>
+    
+    <form id="frm1" action="form_action.asp">
+<!--      <input type="submit" value="Submit">-->
+    </form>
+        
+    <button onclick="Invoke()">Invoke</button>
+    <button onclick="Random()">Random</button>
+            
+    <form id="frm1" action="form_action.asp">
+    </form>
+
+    <img id="img" src = ""></p>
+    Invoke Response: <br>
+    <p id="invoke_response"></p>        
+        
+    <script src="js/catdog.js"></script>
+        
+    </body>
+</html>
