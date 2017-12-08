@@ -39,7 +39,7 @@ class FlickrFetchImages(object):
 
         # extras = 'url_sq','url_t','url_s','url_q','url_m','url_n','url_z','url_c','url_l','url_o'
         # we only get urls for these images
-        extras = 'url_o','url_b'
+        extras = 'url_o','url_n'
 
         self.url_dict_list = {e:[] for e in extras}
         page_number = np.random.randint(0, MAX_PAGE_NUMBER)

@@ -38,7 +38,7 @@ def after_request(response):
 class GetRandomImage(Resource):
     def get(self):
         # search_term = np.random.choice(['cat', 'dog'])
-        IMAGE_SIZE = 'url_b'
+        IMAGE_SIZE = 'url_n'
 
         # search_term = np.random.choice(['cat portrait', 'dog portrait', 'cats', 'dogs', 'cat head', 'dog head'])
         search_term = np.random.choice(['cat portrait', 'dog portrait','cat head', 'dog head'])
