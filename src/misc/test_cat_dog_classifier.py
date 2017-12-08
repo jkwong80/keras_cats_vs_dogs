@@ -6,13 +6,13 @@ Manually predict for images using the trained model.
 
 """
 
-
-
 import os, sys, glob
+
+script_directory = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.join(script_directory, '../common'))
+
 import numpy as np
-
 from keras.models import load_model
-
 from PIL import Image
 
 
@@ -27,7 +27,6 @@ class CatOrDog(object):
         pass
 
     def PredictImage(self, img):
-
 
 
 # dimensions of our images.
@@ -49,7 +48,7 @@ train_set_dir = {class_name:os.path.join(train_data_dir, class_name) for class_n
 
 
 # load the trained keras model
-model = load_model(os.path.join(os.environ['HOME'], 'repo', 'keras_cats_vs_dogs', 'src', 'cat_dog_model.h5'))
+model = load_model(os.path.join(os.environ['HOME'], 'repo', 'keras_cats_vs_dogs', 'src', 'models', 'cat_dog_model.h5'))
 
 # get list of files in
 fullfilenamelist = {class_name:glob.glob(os.path.join(validation_set_dir[class_name], '*.jpg')) for class_name in class_name_list }

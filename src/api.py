@@ -1,20 +1,26 @@
-from flask import Flask, jsonify, request
-from flask_restful import Resource, Api
-import os, sys
-import json
+import os, json, io, sys
+
+script_directory = os.path.dirname(os.path.realpath(__file__))
+print(script_directory)
+# sys.path.append(os.path.join(script_directory, 'common'))
+sys.path.insert(0,os.path.join(script_directory, 'common'))
+model_directory = os.path.join(script_directory, 'models')
+
 import numpy as np
-import CatOrDogConv
-import requests
-import io
 import requests
 from PIL import Image
-import flickr_api
+from flask import Flask, jsonify, request
+from flask_restful import Resource, Api
+
+import CatOrDogConv
+import flickr_api.flickr_api
+
 
 app = Flask(__name__)
 api = Api(app)
 
 print('loading model')
-catdog = CatOrDogConv.CatOrDogConv('cat_dog_model.h5')
+catdog = CatOrDogConv.CatOrDogConv(os.path.join(model_directory, 'cat_dog_model.h5'))
 
 # prob = catdog.PredictFilename('cat.jpg')
 # print(prob)
@@ -22,9 +28,9 @@ catdog = CatOrDogConv.CatOrDogConv('cat_dog_model.h5')
 catdog.model._make_predict_function()
 
 # read the json file containing the keys
-script_directory = os.path.dirname(os.path.realpath(__file__))
+
 flickr_keys = json.load(open(os.path.join(script_directory, 'flickr_keys.json')))
-flickr = flickr_api.FlickrFetchImages(flickr_keys['public'], flickr_keys['secret'])
+flickr = flickr_api.flickr_api.FlickrFetchImages(flickr_keys['public'], flickr_keys['secret'])
 
 
 # solution on
