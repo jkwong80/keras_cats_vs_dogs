@@ -125,12 +125,12 @@ def train_top_model():
     model.add(Dropout(0.5))
     model.add(Dense(1, activation='sigmoid'))
 
-    model.compile(optimizer='rmsprop',
-                  loss='binary_crossentropy', metrics=['accuracy'])
+    # model.compile(optimizer='rmsprop',
+    #               loss='binary_crossentropy', metrics=['accuracy'])
 
     # # smaller learning rate
-    # rmsprop = RMSprop(lr=0.0001, rho=0.9, epsilon=1e-8, decay=0.0)
-    # model.compile(loss='binary_crossentropy', optimizer=rmsprop, metrics=['accuracy'])
+    rmsprop = RMSprop(lr=0.0001, rho=0.9, epsilon=1e-8, decay=0.0)
+    model.compile(loss='binary_crossentropy', optimizer=rmsprop, metrics=['accuracy'])
 
     model.fit(train_data, train_labels,
               epochs=epochs,
