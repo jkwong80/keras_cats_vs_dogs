@@ -143,7 +143,7 @@ function Random(){
             json_parsed = JSON.parse(result);
             
 //            document.getElementById("invoke_response").innerHTML = syntaxHighlight(response);
-            document.getElementById("url_string").value = response.url_o;
+            document.getElementById("url_string").value = response.url_b;
             Invoke();
         },
             
