@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-python api.py &
+nohup python api.py > api.out &
