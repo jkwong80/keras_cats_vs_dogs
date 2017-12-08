@@ -21,7 +21,7 @@ api = Api(app)
 
 print('loading model')
 catdog = CatOrDogConv.CatOrDogConv(os.path.join(model_directory, 'cat_dog_model.h5'))
-# catdog = CatOrDogConv.CatOrDogConv(os.path.join(model_directory, 'bottleneck_fc_model.h5'))
+# catdog = CatOrDogConv.CatOrDogConvVGG16(os.path.join(model_directory, 'bottleneck_fc_model.h5'))
 
 # prob = catdog.PredictFilename('cat.jpg')
 # print(prob)
