@@ -34,8 +34,8 @@ class FlickrFetchImages(object):
                         print('skip')
 
     def GetRandomImage(self, search_key, image_type = None):
-        MAX_PAGE_NUMBER = 5
-        PER_PAGE = 50
+        MAX_PAGE_NUMBER = 20
+        PER_PAGE = 100
 
         # extras = 'url_sq','url_t','url_s','url_q','url_m','url_n','url_z','url_c','url_l','url_o'
         # we only get urls for these images
