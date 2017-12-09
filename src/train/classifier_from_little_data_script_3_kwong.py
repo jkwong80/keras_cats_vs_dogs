@@ -83,7 +83,7 @@ img_width, img_height = 150, 150
 # training parameters
 nb_train_samples = 24000
 nb_validation_samples = 1000
-epochs = 50
+epochs = 5
 batch_size = 16
 
 

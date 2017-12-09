@@ -64,7 +64,7 @@ for class_name in class_name_list:
 
 
         x = load_img(f, target_size=(img_width, img_height))
-        x = img_to_array(x)
+        x = img_to_array(x)/255.
         x = np.expand_dims(x, axis=0)
         array_vgg16 = model_vgg16.predict(x)
 
@@ -78,7 +78,7 @@ for class_name in class_name_list:
             if prediction_prob[class_name][instance_index] < 0.5:
                 print('{}, {}, {}, wrong'.format(instance_index, f, prediction_prob[class_name][instance_index]))
 
-    prediction = prediction_prob[class_name][instance_index] > 0.5
+    prediction = prediction_prob[class_name] > 0.5
     if class_name == 'cats':
         number_correct = (prediction == 0).sum()
     else:

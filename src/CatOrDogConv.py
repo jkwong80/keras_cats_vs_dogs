@@ -84,7 +84,7 @@ class CatOrDogConvVGG16(object):
         # turns the array into an image object, resizes it with antialiasing
         img = Image.fromarray(img).resize((self.image_shape[0], self.image_shape[1]), Image.ANTIALIAS)
 
-        x = np.expand_dims(np.array(img), axis=0)
+        x = np.expand_dims(np.array(img), axis=0)/255.
         array_vgg16 = self.model_vgg16.predict(x)
 
         # convert to array, format to 4d and run prediction
@@ -97,7 +97,7 @@ class CatOrDogConvVGG16(object):
         :param img:
         :return:
         """
-        x = np.expand_dims(np.array(img_resized), axis=0)
+        x = np.expand_dims(np.array(img_resized), axis=0)/255.
         array_vgg16 = self.model_vgg16.predict(x)
         return(self.model.predict_proba( array_vgg16 ))
 
