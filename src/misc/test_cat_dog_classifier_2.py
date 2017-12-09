@@ -50,7 +50,10 @@ for class_name in class_name_list:
 
 prediction_prob = {class_name:np.zeros(len(fullfilenamelist[class_name])) for class_name in class_name_list}
 
-for class_name in ['cats']:
+
+# _prob = {class_name:np.zeros(len(fullfilenamelist[class_name])) for class_name in class_name_list}
+
+for class_name in class_name_list:
     print('Working on {}'.format(class_name))
     for instance_index, f in enumerate(fullfilenamelist[class_name]):
         if instance_index % 50 == 0:
@@ -74,3 +77,13 @@ for class_name in ['cats']:
         else:
             if prediction_prob[class_name][instance_index] < 0.5:
                 print('{}, {}, {}, wrong'.format(instance_index, f, prediction_prob[class_name][instance_index]))
+
+    prediction = prediction_prob[class_name][instance_index] > 0.5
+    if class_name == 'cats':
+        number_correct = (prediction == 0).sum()
+    else:
+        number_correct = (prediction == 1).sum()
+    accuracy = float( number_correct ) / len(prediction)
+    print('Accuracy = {}'.format(accuracy))
+    print('#correct = {}'.format(number_correct))
+
