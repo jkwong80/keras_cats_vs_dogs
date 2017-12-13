@@ -2,12 +2,11 @@
 <meta charset="utf-8">
 
 <html>
-
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!--        <script src="https://d3js.org/d3.v4.min.js"></script>-->
         <script src="http://mbostock.github.com/d3/d3.v2.js"></script>
-        <title>Cat or Dog?</title>
+        <title>Dog or Cat?</title>
 
         <style>
           /* Always set the map height explicitly to define the size of the div
@@ -50,37 +49,43 @@
     </head>
     
     <body>
-        
+
+                <h1>Dog or Cat?</h1>
+
     <div class="header">
-        <img src="images/collie.jpg" alt="collie" height="100"/>
-        <img src="images/cat_thinking.jpg" alt="cat thinking" height="100" />
+        <img src="images/collie.jpg" alt="collie" height="125"/>
+        <img src="images/cat_thinking.jpg" alt="cat thinking" height="125" />
         <br>
     </div>
     <p>
         <br/>
+        <br/>
+
         <br>
+        <br>
+
+        <br/>
         
         <br/>
-        <h1>Cat or Dog?</h1>
         
         This website demonstrates the use of a <a href="http://cs231n.github.io/convolutional-networks/">convolutional neural network</a> to classify images of cats and dogs.  The model was built with the high-level neural network package called <a href="https://keras.io/">Keras</a> and trained with this Kaggle <a href="https://www.kaggle.com/c/dogs-vs-cats/data">dataset</a>, which contains tens of thousands of dog and cat images.
         <br/>
         <br/>
-        Click "Invoke" to run the classifier. Press "Random" to run on a random Flickr Image
+        Click the "Invoke" button to run the classifier. Press "Random" to run it on a random Flickr Image.
         
     </p>
     <p>
-        </p>
+    </p>
+<!--
     <form id="frm1" action="form_action.asp">
-<!--      Cat Or Dog API URL: </br><input type="text" name="fname" id="url" size = 80 value="http://127.0.0.1:5000"><br>-->
       Cat Or Dog API URL: </br><input type="text" name="fname" id="url" size = 80 value="http://35.161.103.202:5000"><br>
     </form>
-
-
+-->
 
 <!--        <button onclick="ClearJobId()">Clear job_id</button><br>-->
 
     Image URL<br>
+    
     <textarea rows="3" cols="80" id="url_string">https://farm4.staticflickr.com/3373/3600836516_ab924c6729_z_d.jpg</textarea>
 
     <p>Click "Invoke" to run the classifier. Press "Random" to run on a random Flickr Image</p>
@@ -101,6 +106,6 @@
         
     <script src="js/catdog.js"></script>
 
-<p>&copy; 2017 John Kwong<p>
+    <p>&copy; 2017 John Kwong<p>
     </body>
 </html>

@@ -1,0 +1,11 @@
+numpy
+keras
+tensorflow
+flask-restful
+requests
+flickrapi
+h5py
+image
+flask-cors
+uwsgi
+pillow

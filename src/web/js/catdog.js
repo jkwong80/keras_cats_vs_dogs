@@ -57,19 +57,12 @@ function syntaxHighlight(json) {
 }
 
 
-function ReadTextEntry() {
-    url = document.getElementById("url").value;
-    url_string = document.getElementById("url_string").value;
-//    job_dict = JSON.parse(json_message);
-//    job_id_to_retrieve = document.getElementById("job_id_to_retrieve").value;
+//url = 'http://35.161.103.202:5000';
+url = 'http://www.dogorcat.online:5000';
 
-    //    var x = document.getElementById("frm1");
-//    var text = "";
-//    var i;
-//    for (i = 0; i < x.length ;i++) {
-//        text += x.elements[i].value + "<br>";
-//    }
-//    document.getElementById("demo").innerHTML = text;
+function ReadTextEntry() {
+//    url = document.getElementById("url").value;
+    url_string = document.getElementById("url_string").value;
 }
 
 
@@ -158,7 +151,7 @@ function Random(){
 
 // get the data from the lambda function
 function Invoke(){
-    ReadTextEntry()
+    ReadTextEntry();
 //    document.getElementById("demo").innerHTML = url + "<br>" + json_message;
     jQuery.ajax( {
         type: 'POST',

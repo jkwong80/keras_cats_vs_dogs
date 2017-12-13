@@ -1,3 +1,13 @@
+"""
+
+These are classes that hold the covnet models trained with Keras by the first two methods in this blog post.
+https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
+
+
+John Kwong
+
+
+"""
 from keras.models import load_model
 from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 from keras import applications
@@ -12,7 +22,7 @@ img_width, img_height = 150, 150
 
 class CatOrDogConv(object):
     """
-
+        Cat or Dog classifier class.  The models are trained from scratch.
     """
 
     def __init__(self, filename):
@@ -60,7 +70,9 @@ class CatOrDogConv(object):
 
 class CatOrDogConvVGG16(object):
     """
+        Cat or Dog classifier class.  It uses the VGG16 trained on ImageNet to generate the "bottleneck" features
 
+        The classifier
     """
 
     def __init__(self, filename):
